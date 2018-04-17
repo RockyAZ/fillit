@@ -6,7 +6,7 @@
 #    By: azaporoz <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/11 15:27:53 by azaporoz          #+#    #+#              #
-#    Updated: 2018/04/17 15:19:22 by azaporoz         ###   ########.fr        #
+#    Updated: 2018/04/17 18:16:51 by azaporoz         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -19,7 +19,7 @@ main:
 	gcc -Wall -Wextra -Werror main.c fillit.a libft.a
 
 clean:
-	rm -f *.o
+	@rm -f *.o
 
 fclean: clean
 	rm -f fillit.a

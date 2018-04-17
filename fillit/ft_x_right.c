@@ -6,7 +6,7 @@
 /*   By: azaporoz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 11:49:51 by azaporoz          #+#    #+#             */
-/*   Updated: 2018/04/17 18:02:51 by azaporoz         ###   ########.fr       */
+/*   Updated: 2018/04/17 18:28:06 by azaporoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_x_right(t_list *pos, int k)
 	if (!ft_check_next(&pos))
 	{
 		ft_x_left(pos, k);
-		return (10);
+		return (0);
 	}
 	return (1);
 }

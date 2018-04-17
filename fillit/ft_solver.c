@@ -6,7 +6,7 @@
 /*   By: azaporoz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 14:40:23 by azaporoz          #+#    #+#             */
-/*   Updated: 2018/04/17 18:07:19 by azaporoz         ###   ########.fr       */
+/*   Updated: 2018/04/17 18:55:37 by azaporoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	ft_lstswap(t_list **src)
 
 void	ft_mover(t_list **cp)
 {
-	t_list *lst;
-	int i;
+	t_list	*lst;
+	int		i;
 
 	lst = *cp;
 	while (lst)
@@ -45,15 +45,16 @@ void	ft_mover(t_list **cp)
 	}
 }
 
+void	ft_rec_solv(t_list **src, int i, char c)
+{
+	if (ft_x_right(*src, i))
+}
+
 void	ft_solver(t_list **src)
 {
 	t_list	*cp;
-	int i;
-	char c;
 
 	cp = *src;
-	i = 1;
-	c = 'A';
 	ft_mover(&cp);
 	while (cp)
 	{
@@ -61,12 +62,25 @@ void	ft_solver(t_list **src)
 		cp = cp->next;
 	}
 	cp = *src;
+	while (cp ->next)
+	{
+		ft_rec_solv(&cp, 1, 'A');
+		cp = cp->next;
+	}
+	cp = *src;
+	while (cp)
+	{
+		ft_rewrite(cp, cp, '#');
+		cp = cp->next;
+	}
+/*
+	cp = *src;
 	ft_lstswap(&cp);
-//	printf("X - %d\n", ft_x_right(cp, 1));
-//	printf("Y - %d\n", ft_y_down(cp, 1));
 	printf("X1 - %d\n", ft_x_right(cp, 2));
-    printf("Y1 - %d\n", ft_y_down(cp, 2));
+	printf("Y1 - %d\n", ft_y_down(cp, 2));
 	*src = cp;
+*/
+
 	while ((*src))
 	{
 		printf("SRC-\n%s\n", (*src)->content);
