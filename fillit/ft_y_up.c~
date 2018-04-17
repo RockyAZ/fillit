@@ -6,13 +6,13 @@
 /*   By: azaporoz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 11:51:51 by azaporoz          #+#    #+#             */
-/*   Updated: 2018/04/17 15:37:01 by azaporoz         ###   ########.fr       */
+/*   Updated: 2018/04/16 20:45:23 by azaporoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int	ft_y_up(t_list *pos, int k)
+int	ft_y_up(t_list *pos)
 {
 	int i;
 
@@ -26,7 +26,7 @@ int	ft_y_up(t_list *pos, int k)
 	i = 0;
 	while (i < 4)
 	{
-		pos->y[i] -= k;
+		pos->y[i]--;
 		i++;
 	}
 	return (1);

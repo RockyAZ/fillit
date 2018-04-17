@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_push_back.c                                :+:      :+:    :+:   */
+/*   ft_x_left.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaporoz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/10 16:12:11 by azaporoz          #+#    #+#             */
-/*   Updated: 2018/04/16 15:49:55 by azaporoz         ###   ########.fr       */
+/*   Created: 2018/04/13 11:48:55 by azaporoz          #+#    #+#             */
+/*   Updated: 2018/04/16 20:34:07 by azaporoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "fillit.h"
 
-void	ft_list_push_back(t_list **begin_list, void *data, int size)
+int	ft_x_left(t_list *pos)
 {
-	t_list *cursor;
+	int i;
 
-	cursor = *begin_list;
-	if (!cursor)
-		(*begin_list) = ft_lstnew(data, size);
-	else
+	i = 0;
+	while (i < 4)
 	{
-		while (cursor->next != NULL)
-			cursor = cursor->next;
-		cursor->next = ft_lstnew(data, size);
+		if ((pos->x[i] - 1) < 0)
+			return (0);
+		i++;
 	}
+	i = 0;
+	while (i < 4)
+	{
+		pos->x[i]--;
+		i++;
+	}
+	return (1);
 }

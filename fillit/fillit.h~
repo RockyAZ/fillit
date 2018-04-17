@@ -6,7 +6,7 @@
 /*   By: azaporoz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/08 14:27:57 by azaporoz          #+#    #+#             */
-/*   Updated: 2018/04/17 16:55:51 by azaporoz         ###   ########.fr       */
+/*   Updated: 2018/04/17 16:05:26 by azaporoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ int		ft_x_left(t_list *pos, int k);
 int		ft_x_right(t_list *pos, int k);
 int		ft_y_down(t_list *pos, int k);
 int		ft_y_up(t_list *pos, int k);
-void	ft_rewrite(t_list *lst, t_list *pos, char c);
+void	ft_rewrite(t_list *lst);
 int		ft_check_next(t_list **first);
 #endif

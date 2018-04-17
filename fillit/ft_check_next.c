@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_y_up.c                                          :+:      :+:    :+:   */
+/*   ft_check_next.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaporoz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/13 11:51:51 by azaporoz          #+#    #+#             */
-/*   Updated: 2018/04/17 15:37:01 by azaporoz         ###   ########.fr       */
+/*   Created: 2018/04/15 18:20:24 by azaporoz          #+#    #+#             */
+/*   Updated: 2018/04/17 17:17:54 by azaporoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int	ft_y_up(t_list *pos, int k)
+int	ft_check_next(t_list **first)
 {
 	int i;
+	int j;
 
-	i = 0;
-	while (i < 4)
+	if ((*first)->next == NULL)
+		return (0);
+	i = -1;
+	while (++i < 4)
 	{
-		if ((pos->y[i] - 1) < 0)
-			return (0);
-		i++;
-	}
-	i = 0;
-	while (i < 4)
-	{
-		pos->y[i] -= k;
-		i++;
+		j = -1;
+		while (++j < 4)
+			if (((*first)->x[i] == (*first)->next->x[j]) && ((*first)->y[i] == (*first)->next->y[j]))
+				return(0);
 	}
 	return (1);
 }
