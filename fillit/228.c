@@ -1,54 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   228.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: azaporoz <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/04/19 20:53:09 by azaporoz          #+#    #+#             */
+/*   Updated: 2018/04/20 14:57:21 by azaporoz         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include <stdio.h>
 
-/*
-int f(int *i)
-{
-	printf("AAA\n");
-	return(*i = 0);
-}
-
-void f1(int *i, int ft())
-{
-	ft(i);
-}
-
 int main()
 {
-	int i = 9;
-	f1(&i, &f);
-	printf("%d\n", i);
+	int i[2] = {1, 2};
+	int j[2];
+	for(int k; k < 2; k++)
+		printf("%d\n", i[k]);
+    for(int k; k < 2; k++)
+        printf("%d\n", j[k]);
+	j = i;
+    for(int k; k < 2; k++)
+        printf("%d\n", j[k]);
 	return (0);
-}
-*/
-#include <stdlib.h>
-typedef struct s_list 
-{
-    struct s_list *next;
-    int b;
-}   t_list;
-
-void func(t_list *node)
-{
-
-    node->b = 2;
-	printf("SHRA-%d\n", node->b);
-    node->next = (t_list*)malloc(sizeof(t_list));
-    node = node->next;
-    node->b = 3;
-	printf("SHRA1-%d\n", node->b);
-    node->next = NULL;
-}
-
-int main()
-{
-    t_list *node;
-    node = (t_list*)malloc(sizeof(t_list));
-    node->b = 1;
-	func(node);
-    while(node)
-    {
-        printf("NODE-%d\n", node->b);
-        node = node->next;
-    }
-    return 0;
 }

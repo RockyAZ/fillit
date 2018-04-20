@@ -1,36 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rewrite.c                                       :+:      :+:    :+:   */
+/*   ft_add_size.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaporoz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/16 19:40:05 by azaporoz          #+#    #+#             */
-/*   Updated: 2018/04/19 14:14:25 by azaporoz         ###   ########.fr       */
+/*   Created: 2018/04/20 14:39:47 by azaporoz          #+#    #+#             */
+/*   Updated: 2018/04/20 16:49:11 by azaporoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	ft_rewrite(t_list *dst, t_list *pos, char c)
+void	ft_add_size(t_list *src)
 {
-	int		i;
-	int		j;
-	char	*lst_pos;
-
-	i = 0;
-	j = 0;
-	lst_pos = dst->content;
-	while (i <= TETRA_SIZE - 1)
-	{
-		if ((i % 5 == pos->x[j]) && (i / 5 == pos->y[j]) && *lst_pos != '\n')
-		{
-			*lst_pos = c;
-			j++;
-		}
-		else if (*lst_pos == '#')
-			*lst_pos = '.';
-		i++;
-		lst_pos++;
-	}
-}
+	

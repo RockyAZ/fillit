@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rewrite.c                                       :+:      :+:    :+:   */
+/*   ft_x_right.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaporoz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/16 19:40:05 by azaporoz          #+#    #+#             */
-/*   Updated: 2018/04/19 14:14:25 by azaporoz         ###   ########.fr       */
+/*   Created: 2018/04/13 11:49:51 by azaporoz          #+#    #+#             */
+/*   Updated: 2018/04/17 18:28:06 by azaporoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	ft_rewrite(t_list *dst, t_list *pos, char c)
+int	ft_x_right(t_list *pos, int k)
 {
-	int		i;
-	int		j;
-	char	*lst_pos;
-
+	int i;
+	
 	i = 0;
-	j = 0;
-	lst_pos = dst->content;
-	while (i <= TETRA_SIZE - 1)
+	while (i < 4)
 	{
-		if ((i % 5 == pos->x[j]) && (i / 5 == pos->y[j]) && *lst_pos != '\n')
-		{
-			*lst_pos = c;
-			j++;
-		}
-		else if (*lst_pos == '#')
-			*lst_pos = '.';
+		if ((pos->x[i] + k) > 3)
+			return (0);
 		i++;
-		lst_pos++;
 	}
+	i = 0;
+	while (i < 4)
+	{
+		pos->x[i] += k;
+		i++;
+	}
+	if (!ft_check_next(&pos))
+	{
+		ft_x_left(pos, k);
+		return (0);
+	}
+	return (1);
 }

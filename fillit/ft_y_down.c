@@ -29,10 +29,5 @@ int	ft_y_down(t_list *pos, int k)
 		pos->y[i] += k;
 		i++;
 	}
-	if (!ft_check_next(&pos))
-	{
-		ft_y_up(pos, k);
-		return (0);
-	}
 	return (1);
 }

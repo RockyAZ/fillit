@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rewrite.c                                       :+:      :+:    :+:   */
+/*   ft_check_current.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaporoz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/16 19:40:05 by azaporoz          #+#    #+#             */
-/*   Updated: 2018/04/19 14:14:25 by azaporoz         ###   ########.fr       */
+/*   Created: 2018/04/19 21:00:24 by azaporoz          #+#    #+#             */
+/*   Updated: 2018/04/19 21:00:24 by azaporoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	ft_rewrite(t_list *dst, t_list *pos, char c)
+int ft_check_current(t_list **beg, t_list *cur)
 {
-	int		i;
-	int		j;
-	char	*lst_pos;
+	t_list *pos;
+	int i;
+	int j;
 
-	i = 0;
-	j = 0;
-	lst_pos = dst->content;
-	while (i <= TETRA_SIZE - 1)
+	pos = *beg;
+	while (pos != NULL)
 	{
-		if ((i % 5 == pos->x[j]) && (i / 5 == pos->y[j]) && *lst_pos != '\n')
+		if (pos != cur)
 		{
-			*lst_pos = c;
-			j++;
+			i = -1;
+			while (++i < 4)
+			{
+				j = -1;
+				while (++j < 4)
+					if ((pos->x[i] == cur->x[j]) && (pos->y[i] == cur->y[j]))
+						return(0);
+			}
 		}
-		else if (*lst_pos == '#')
-			*lst_pos = '.';
-		i++;
-		lst_pos++;
+		pos = pos->next;
 	}
+	return (1);
 }

@@ -25,7 +25,6 @@ t_list	*ft_lstswap(t_list *src)
 	return (cp);
 }
 */
-
 void	ft_mover(t_list **cp)
 {
 	t_list	*lst;
@@ -47,6 +46,70 @@ void	ft_mover(t_list **cp)
 			i = ft_y_up(lst, 1);
 		lst = lst->next;
 	}
+}
+
+int		ft_coord_check_x(t_list *beg, t_list *cur, int i)
+{
+	int j;
+
+	j = 1;
+	if (ft_x_right(cur, i) == 1)
+	{
+		if (ft_check_current(&beg, cur) == 0)
+		{
+			while (j < i)
+			{
+				ft_y_down(cur, 1);
+				if (ft_check_current(&beg, cur) == 1)
+					return (1);
+				j++;
+			}
+			ft_y_up(cur, j - 1);
+		}
+		else
+			return (1);
+		ft_x_left(cur, i);
+	}
+	return (0);
+}
+
+int		ft_coord_check_y(t_list *beg, t_list *cur, int i)
+{
+	int j;
+
+	j = 1;
+	if (ft_y_down(cur, i) == 1)
+	{
+		if (ft_check_current(&beg, cur) == 0)
+		{
+			while (j < i)
+			{
+				ft_x_right(cur, 1);
+				if (ft_check_current(&beg, cur) == 1)
+					return (1);
+				j++;
+			}
+			ft_x_left(cur, j - 1);
+		}
+		else
+			return (1);
+		ft_y_up(cur, i);
+	}
+	return (0);
+}
+
+int		ft_rec_solv(t_list *beg, t_list *cur, int i)
+{
+	if (ft_check_all(&beg))
+		return (1);
+	while (cur)
+	{
+		if (ft_coord_check_x(beg, cur, i) == 1)
+
+		ft_coord_check_y(beg, cur, i);
+		cur = cur->next;
+	}
+	return (0);
 }
 
 void	ft_solver(t_list **src)

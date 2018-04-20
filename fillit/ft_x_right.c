@@ -15,7 +15,7 @@
 int	ft_x_right(t_list *pos, int k)
 {
 	int i;
-	
+
 	i = 0;
 	while (i < 4)
 	{
@@ -28,11 +28,6 @@ int	ft_x_right(t_list *pos, int k)
 	{
 		pos->x[i] += k;
 		i++;
-	}
-	if (!ft_check_next(&pos))
-	{
-		ft_x_left(pos, k);
-		return (0);
 	}
 	return (1);
 }

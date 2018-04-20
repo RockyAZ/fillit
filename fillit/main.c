@@ -6,7 +6,7 @@
 /*   By: aomelian <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/02 18:35:56 by aomelian          #+#    #+#             */
-/*   Updated: 2018/04/16 18:45:51 by azaporoz         ###   ########.fr       */
+/*   Updated: 2018/04/19 18:19:41 by azaporoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ int		main(int argc, char **argv)
 	t_list	*src;
 	t_list	*cp;
 
-	cp = NULL;
-	src = NULL;
 	if (argc != 2)
 	{
 		ft_putstr("usage: fillit input_file\n");
@@ -57,7 +55,6 @@ int		main(int argc, char **argv)
 		cp = cp->next;
 	}
 	cp = src;
-/*
 	int i = 0;
 	while (src != NULL)
 	{
@@ -78,8 +75,9 @@ int		main(int argc, char **argv)
 		src = src->next;
 	}
 	src = cp;
-*/
-	ft_solver(&src);
+
+//	ft_solver(&src);
+	printf("ISSS-%d\n", ft_check_current(&src, src));
 	close(fd);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: azaporoz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/02 17:14:08 by azaporoz          #+#    #+#             */
-/*   Updated: 2018/04/16 15:25:13 by azaporoz         ###   ########.fr       */
+/*   Updated: 2018/04/16 16:51:24 by azaporoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+int					ft_lstsize(t_list *begin_list);
 int					ft_demcalc(int a, int b, char *sign);
 char				*ft_strrev(char *str);
 void				ft_swap(int *a, int *b);
