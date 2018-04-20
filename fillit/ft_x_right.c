@@ -6,27 +6,27 @@
 /*   By: azaporoz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 11:49:51 by azaporoz          #+#    #+#             */
-/*   Updated: 2018/04/16 17:02:27 by azaporoz         ###   ########.fr       */
+/*   Updated: 2018/04/17 18:28:06 by azaporoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int	ft_x_right(t_list *pos)
+int	ft_x_right(t_list *pos, int k)
 {
 	int i;
 
 	i = 0;
 	while (i < 4)
 	{
-		if ((pos->x[i] + 1) > 3)
+		if ((pos->x[i] + k) > 3)
 			return (0);
 		i++;
 	}
 	i = 0;
 	while (i < 4)
 	{
-		pos->x[i]++;
+		pos->x[i] += k;
 		i++;
 	}
 	return (1);

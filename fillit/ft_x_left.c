@@ -6,13 +6,13 @@
 /*   By: azaporoz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 11:48:55 by azaporoz          #+#    #+#             */
-/*   Updated: 2018/04/16 17:02:03 by azaporoz         ###   ########.fr       */
+/*   Updated: 2018/04/17 15:37:47 by azaporoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int	ft_x_left(t_list *pos)
+int	ft_x_left(t_list *pos, int k)
 {
 	int i;
 
@@ -26,7 +26,7 @@ int	ft_x_left(t_list *pos)
 	i = 0;
 	while (i < 4)
 	{
-		pos->x[i]--;
+		pos->x[i] -= k;
 		i++;
 	}
 	return (1);

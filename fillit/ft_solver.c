@@ -6,56 +6,83 @@
 /*   By: azaporoz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 14:40:23 by azaporoz          #+#    #+#             */
-/*   Updated: 2018/04/16 19:13:10 by azaporoz         ###   ########.fr       */
+/*   Updated: 2018/04/19 17:55:09 by azaporoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	ft_lstswap(t_list **src)
+t_list	*ft_lstswap(t_list *src)
 {
 	t_list	*cp;
 
-	cp = *src;
-	(*src) = (*src)->next;
-	cp->next = (*src)->next;
-	(*src)->next = cp;
+	cp = src;
+	if (cp->next == NULL)
+		return (NULL);
+	cp = cp->next;
+	src->next = cp->next;
+	cp->next = src;
+	return (cp);
 }
 
-int		ft_check(t_list *lst)
+void	ft_mover(t_list **cp)
 {
-	int i;
+	t_list	*lst;
+	int		i;
 
-	if (lst->next = NULL)
-		return (0);
-	i = -1;
-	while (++i < 4)
-		if (lst->x[i] = lst->next->x[i])
-			return (0);
-	return (1);
+	lst = *cp;
+	while (lst)
+	{
+		i = 1;
+		while (i)
+			i = ft_x_left(lst, 1);
+		lst = lst->next;
+	}
+	lst = *cp;
+	while (lst)
+	{
+		i = 1;
+		while (i)
+			i = ft_y_up(lst, 1);
+		lst = lst->next;
+	}
+}
+/*
+ft_x_right
+ft_y_down
+*/
+int		ft_rec_solv(t_list *beg, t_list *cur, int i)
+{
+	if (ft_check_all(&beg))
+		return (1);
+	while (ft_check_current(&beg, cur))
+	{
+		if (ft_x_right(cur, i) == 1)
+		{
+			if (ft_check_current(&beg, cur) == 0)
+				ft_x_left(cur, i);
+		}
+		else if (ft_y_down(cur, i) == 1)
+		{
+			if (ft_check_current(&beg, cur) == 0)
+				ft_y_up(cur, i);
+		}
+			if (ft_rec_solv(beg, cur->next, i))
+				return (1);
+	}
 }
 
 void	ft_solver(t_list **src)
 {
 	t_list	*cp;
+	int bul;
 
 	cp = *src;
-	
-	while (cp)
+	bul = 0;
+	ft_mover(&cp);
+	while (bul != 1)
 	{
-		if (!ft_check(cp))
-		{
-			if (!ft_x_left(cp), &ft_check)
-				ft_lstswap(&cp);
-			else if (!ft_check(cp))
-				ft_x_right(cp);
-		}
-		else
-			
-}
-	while (src)
-	{
-		printf("SRC-\n%s\n", src->content);
-		src = src->next;
+		bul = ft_rec_solv(cp, cp, 0);
+		ft_add_size();
 	}
 }
