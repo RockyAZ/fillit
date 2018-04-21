@@ -12,10 +12,10 @@
 
 #include "fillit.h"
 
-int	ft_check_all(t_list **first)
+int	ft_check_all(t_pos **first)
 {
-	t_list *cp;
-	t_list *pos;
+	t_pos *cp;
+	t_pos *pos;
 	int i;
 	int j;
 

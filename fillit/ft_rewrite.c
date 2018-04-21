@@ -12,7 +12,7 @@
 
 #include "fillit.h"
 
-void	ft_rewrite(t_list *dst, t_list *pos, char c)
+void	ft_rewrite(t_pos *dst, t_pos *pos)
 {
 	int		i;
 	int		j;
@@ -25,10 +25,10 @@ void	ft_rewrite(t_list *dst, t_list *pos, char c)
 	{
 		if ((i % 5 == pos->x[j]) && (i / 5 == pos->y[j]) && *lst_pos != '\n')
 		{
-			*lst_pos = c;
+			*lst_pos = dst->c;
 			j++;
 		}
-		else if (*lst_pos == '#')
+		else if (*lst_pos == dst->c)
 			*lst_pos = '.';
 		i++;
 		lst_pos++;

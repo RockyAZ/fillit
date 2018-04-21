@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_y_down.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaporoz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/13 11:51:03 by azaporoz          #+#    #+#             */
-/*   Updated: 2018/04/17 18:28:04 by azaporoz         ###   ########.fr       */
+/*   Created: 2018/04/11 15:46:36 by azaporoz          #+#    #+#             */
+/*   Updated: 2018/04/16 16:52:13 by azaporoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int	ft_y_down(t_pos *pos, int k)
+int	ft_lstsize(t_pos *begin_list)
 {
-	int i;
+	int		i;
+	t_pos	*cursor;
 
 	i = 0;
-	while (i < 4)
+	cursor = begin_list;
+	while (cursor != NULL)
 	{
-		if ((pos->y[i] + k) > 3)
-			return (0);
+		cursor = cursor->next;
 		i++;
 	}
-	i = 0;
-	while (i < 4)
-	{
-		pos->y[i] += k;
-		i++;
-	}
-	return (1);
+	return (i);
 }

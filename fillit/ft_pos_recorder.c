@@ -12,7 +12,7 @@
 
 #include "fillit.h"
 
-void	ft_pos_recorder(t_list *src)
+void	ft_pos_recorder(t_pos *src)
 {
 	int		i;
 	int		j;

@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_y_down.c                                        :+:      :+:    :+:   */
+/*   ft_map_filler.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaporoz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/13 11:51:03 by azaporoz          #+#    #+#             */
-/*   Updated: 2018/04/17 18:28:04 by azaporoz         ###   ########.fr       */
+/*   Created: 2018/04/21 19:31:56 by azaporoz          #+#    #+#             */
+/*   Updated: 2018/04/21 19:31:58 by azaporoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int	ft_y_down(t_pos *pos, int k)
+t_res	*ft_map_filler(t_res *link, int i, int pos)
 {
-	int i;
+	int		k;
+	int		cp;
 
-	i = 0;
-	while (i < 4)
+	k = 0;
+	cp = pos;
+	while (k < i)
 	{
-		if ((pos->y[i] + k) > 3)
-			return (0);
-		i++;
+		if (k == pos)
+		{
+			link->map[k] = '\n';
+			pos += cp + 1;
+		}
+		else
+			link->map[k] = '.';
+		k++;
 	}
-	i = 0;
-	while (i < 4)
-	{
-		pos->y[i] += k;
-		i++;
-	}
-	return (1);
+	link->map[k] = '\0';
+	return (link);
 }

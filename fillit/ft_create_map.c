@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_y_down.c                                        :+:      :+:    :+:   */
+/*   ft_create_map.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaporoz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/13 11:51:03 by azaporoz          #+#    #+#             */
-/*   Updated: 2018/04/17 18:28:04 by azaporoz         ###   ########.fr       */
+/*   Created: 2018/04/21 15:48:26 by azaporoz          #+#    #+#             */
+/*   Updated: 2018/04/21 15:49:06 by azaporoz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int	ft_y_down(t_pos *pos, int k)
+t_res    *ft_create_map(t_res **map, int i, int pos)
 {
-	int i;
+	t_res *link;
 
-	i = 0;
-	while (i < 4)
-	{
-		if ((pos->y[i] + k) > 3)
-			return (0);
-		i++;
-	}
-	i = 0;
-	while (i < 4)
-	{
-		pos->y[i] += k;
-		i++;
-	}
-	return (1);
+	link = NULL;
+	link = (t_res*)malloc(sizeof(t_res));
+	if (map != NULL)
+        map = NULL;
+        /*realy need (+ 1) here: ???*/
+	link->map = (char*)malloc((sizeof(char) * i) + 1);
+    link = ft_map_filler(link, i, pos);
+    return (link);
 }

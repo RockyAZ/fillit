@@ -12,9 +12,9 @@
 
 #include "fillit.h"
 
-int ft_check_current(t_list **beg, t_list *cur)
+int ft_check_current(t_pos **beg, t_pos *cur)
 {
-	t_list *pos;
+	t_pos *pos;
 	int i;
 	int j;
 

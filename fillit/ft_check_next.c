@@ -12,7 +12,7 @@
 
 #include "fillit.h"
 
-int	ft_check_next(t_list **first)
+int	ft_check_next(t_pos **first)
 {
 	int i;
 	int j;

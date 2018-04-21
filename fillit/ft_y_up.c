@@ -12,7 +12,7 @@
 
 #include "fillit.h"
 
-int	ft_y_up(t_list *pos, int k)
+int	ft_y_up(t_pos *pos, int k)
 {
 	int i;
 

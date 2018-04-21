@@ -11,24 +11,13 @@
 /* ************************************************************************** */
 
 #include "fillit.h"
-/*
-t_list	*ft_lstswap(t_list *src)
-{
-	t_list	*cp;
 
-	cp = src;
-	if (cp->next == NULL)
-		return (NULL);
-	cp = cp->next;
-	src->next = cp->next;
-	cp->next = src;
-	return (cp);
-}
-*/
+t_res	*ft_create_map(t_res **res, int i, int pos);
 
-void	ft_mover(t_list **cp)
+
+void	ft_mover(t_pos **cp)
 {
-	t_list	*lst;
+	t_pos	*lst;
 	int		i;
 
 	lst = *cp;
@@ -49,13 +38,31 @@ void	ft_mover(t_list **cp)
 	}
 }
 
-void	ft_solver(t_list **src)
+int		ft_rec_solv(t_pos *cp, t_list *map)
 {
-	t_list	*cp;
-	int bul;
+	if (ft_check_all(&cp) == 1)
+		return (1);
 
-	cp = *src;
-	bul = 0;
-	ft_mover(&cp);
-	bul = ft_rec_solv(cp, cp, 1);
+}
+
+void	ft_solver(t_pos **src)
+{
+	t_res	*map;
+	t_pos	*cp;
+	int pos;
+	int map_c;
+	int ad;
+
+	map = NULL;
+	pos = 2;
+	map_c = 6;
+	ad = 6;
+	while (ft_rec_solv(cp) != 1)
+	{
+		map = ft_create_map(&map, map_c, pos);
+		map_c += ad;
+		ad += 2;
+		pos ++;
+	}
+//	ft_print_res();
 }

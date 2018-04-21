@@ -18,17 +18,17 @@ void	raise_err(void)
 	exit(1);
 }
 
-void	read_file(int fd, t_list **src)
+void	read_file(int fd, t_pos **src, char c)
 {
 	int ret;
 	char buf[TETRA_SIZE];
-	t_list *beg;
+	t_pos *beg;
 
 	beg = *src;
 	while ((ret = read(fd, buf, TETRA_SIZE)))
 	{
 		buf[ret] = '\0';
-		ft_list_push_back(&beg, buf, sizeof(buf));
+		ft_list_push_back(&beg, buf, sizeof(buf), c++);
 	}
 	*src = beg;
 }
@@ -36,8 +36,9 @@ void	read_file(int fd, t_list **src)
 int		main(int argc, char **argv)
 {
 	int		fd;
-	t_list	*src;
-	t_list	*cp;
+	t_pos	*src;
+	t_pos	*cp;
+	char	c;
 
 	if (argc != 2)
 	{
@@ -46,14 +47,17 @@ int		main(int argc, char **argv)
 	}
 	if ((fd = open(argv[1], O_RDONLY)) == -1)
 		raise_err();
-	read_file(fd, &src);
+		c = 'A';
+	read_file(fd, &src, c);
 	cp = src;
 
 	while (cp != NULL)
 	{
 		ft_pos_recorder(cp);
+		ft_rewrite(cp, cp);
 		cp = cp->next;
 	}
+/*
 	cp = src;
 	int i = 0;
 	while (src != NULL)
@@ -66,8 +70,7 @@ int		main(int argc, char **argv)
 			write(1, "\n", 1);
 			ft_putstr("POS_y- ");
 			ft_putnbr(src->y[i]);
-			write(1, "\n", 1);
-			write(1, "\n", 1);
+			write(1, "\n\n", 2);
 			i++;
 		}
 		printf("----------------------------\n");
@@ -75,9 +78,10 @@ int		main(int argc, char **argv)
 		src = src->next;
 	}
 	src = cp;
-
-//	ft_solver(&src);
-	printf("ISSS-%d\n", ft_check_current(&src, src));
+*/
+//ft_create_map(2x2);
+	ft_solver(&src);
+//	printf("ISSS-%d\n", ft_check_current(&src, src));
 	close(fd);
 	return (0);
 }

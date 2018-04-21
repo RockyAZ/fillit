@@ -12,7 +12,7 @@
 
 #include "fillit.h"
 
-int	ft_x_left(t_list *pos, int k)
+int	ft_x_left(t_pos *pos, int k)
 {
 	int i;
 
