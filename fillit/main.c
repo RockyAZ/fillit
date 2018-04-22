@@ -57,7 +57,7 @@ int		main(int argc, char **argv)
 		ft_rewrite(cp, cp);
 		cp = cp->next;
 	}
-/*
+
 	cp = src;
 	int i = 0;
 	while (src != NULL)
@@ -78,10 +78,10 @@ int		main(int argc, char **argv)
 		src = src->next;
 	}
 	src = cp;
-*/
-//ft_create_map(2x2);
-	ft_solver(&src);
-//	printf("ISSS-%d\n", ft_check_current(&src, src));
+
+	printf("CHECK - %d\n", ft_check_int(src, 1));
+
+//	ft_solver(&src);
 	close(fd);
 	return (0);
 }

@@ -12,9 +12,6 @@
 
 #include "fillit.h"
 
-t_res	*ft_create_map(t_res **res, int i, int pos);
-
-
 void	ft_mover(t_pos **cp)
 {
 	t_pos	*lst;
@@ -38,31 +35,58 @@ void	ft_mover(t_pos **cp)
 	}
 }
 
-int		ft_rec_solv(t_pos *cp, t_list *map)
+int		is_map(t_pos *cp, int size)
+{
+	int i;
+
+	i = 4;
+	while (cp)
+	{
+		while (i < 4)
+		{
+			if (cp->x[i] >= size || cp->y[i] >= size)
+				return (0);
+			i++;
+		}
+		cp = cp->next;
+	}
+	return (1);
+}
+
+
+
+int		ft_rec_solv(t_pos *cp, t_pos *pos, int size)
 {
 	if (ft_check_all(&cp) == 1)
 		return (1);
-
+	if (!is_map(cp, size))
+		return (0);
+	if ()
 }
 
-void	ft_solver(t_pos **src)
+void	ft_solver(t_pos *cp)
 {
 	t_res	*map;
-	t_pos	*cp;
-	int pos;
+	int size;
 	int map_c;
 	int ad;
+	int bul;
 
 	map = NULL;
-	pos = 2;
+	size = 2;
 	map_c = 6;
 	ad = 6;
-	while (ft_rec_solv(cp) != 1)
+	bul = 0;
+	ft_mover(&cp);
+	while (bul == 0)
 	{
-		map = ft_create_map(&map, map_c, pos);
-		map_c += ad;
-		ad += 2;
-		pos ++;
+		if (bul = ft_rec_solv(cp, cp, size) == 0)
+		{
+			map = ft_create_map(&map, map_c, size);
+			map_c += ad;
+			ad += 2;
+			size ++;
+		}
 	}
 //	ft_print_res();
 }
