@@ -80,9 +80,7 @@ int		main(int argc, char **argv)
 	src = cp;
 */
 
-
-//		printf("main-2-%d\n", ft_check_all(&cp));
-
+//?4?, 10
 	ft_solver(src);
 	close(fd);
 	return (0);

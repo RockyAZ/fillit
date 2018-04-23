@@ -76,8 +76,17 @@ int		is_map(t_pos *cp, int size)
 	return (1);
 }
 
+
+
+
+
+
+
+
+
+
 int		ft_rec_solv(t_pos *beg, t_pos *pos, int size, int to)
-{//write(1, "1\n", 2);
+{
 	int i;
 
 	if (pos == NULL)
@@ -106,6 +115,16 @@ int		ft_rec_solv(t_pos *beg, t_pos *pos, int size, int to)
 		return (1);
 	return (0);
 }
+
+
+
+
+
+
+
+
+
+
 
 void	ft_solver(t_pos *cp)
 {
@@ -143,7 +162,7 @@ cpp = cp;
 /*------------------------------------------------*/
 
 	while (bul == 0)
-	{//write(1, "AA\n", 3);
+	{write(1, "AA\n", 3);
 //		map = ft_create_map(&map, map_c, size);
 		bul = ft_rec_solv(cp, cp, size, 1);
 		if (!bul)
