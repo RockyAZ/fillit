@@ -57,7 +57,7 @@ int		main(int argc, char **argv)
 		ft_rewrite(cp, cp);
 		cp = cp->next;
 	}
-
+/*
 	cp = src;
 	int i = 0;
 	while (src != NULL)
@@ -78,10 +78,12 @@ int		main(int argc, char **argv)
 		src = src->next;
 	}
 	src = cp;
+*/
 
-	printf("CHECK - %d\n", ft_check_int(src, 1));
 
-//	ft_solver(&src);
+//		printf("main-2-%d\n", ft_check_all(&cp));
+
+	ft_solver(src);
 	close(fd);
 	return (0);
 }

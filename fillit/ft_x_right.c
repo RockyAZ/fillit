@@ -12,21 +12,21 @@
 
 #include "fillit.h"
 
-int	ft_x_right(t_pos *pos, int k)
+int	ft_x_right(t_pos *pos, int size)
 {
 	int i;
 
 	i = 0;
 	while (i < 4)
 	{
-		if ((pos->x[i] + k) > 3)
+		if ((pos->x[i] + 1) >= size)
 			return (0);
 		i++;
 	}
 	i = 0;
 	while (i < 4)
 	{
-		pos->x[i] += k;
+		pos->x[i] += 1;
 		i++;
 	}
 	return (1);

@@ -12,7 +12,7 @@
 
 #include "fillit.h"
 
-int ft_check_int(t_pos *beg, int size)
+int ft_check_int(t_pos *beg, int to)
 {
     t_pos *pos;
     int i;
@@ -20,10 +20,12 @@ int ft_check_int(t_pos *beg, int size)
     int cp;
 
     cp = 0;
-    while (size > 0)
+    while (to > 0)
     {
         pos = beg->next;
-        while (cp++ < size - 1)
+        if (pos == NULL)
+            return (0);
+        while (cp++ < to - 1)
         {
             i = -1;
             while (++i < 4)
@@ -36,7 +38,7 @@ int ft_check_int(t_pos *beg, int size)
             pos = pos->next;
         }
         beg = beg->next;
-        size--;
+        to--;
         cp = 0;
     }
     return (1);

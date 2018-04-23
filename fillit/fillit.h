@@ -39,15 +39,15 @@ void				ft_list_push_back(t_pos **begin_list, void *data, int size, char c);
 t_pos				*ft_lstnew_pos(void const *content, size_t content_size, char c);
 t_res				*ft_create_map(t_res **map, int i, int pos);
 t_res				*ft_map_filler(t_res *link, int i, int pos);
-int					ft_check_int(t_pos *beg, int size);
+int					ft_check_int(t_pos *beg, int to);
 
 
 void	ft_pos_recorder(t_pos *src);
-void	ft_solver(t_pos **src);
-int		ft_x_left(t_pos *pos, int k);
-int		ft_x_right(t_pos *pos, int k);
-int		ft_y_down(t_pos *pos, int k);
-int		ft_y_up(t_pos *pos, int k);
+void	ft_solver(t_pos *src);
+int		ft_x_left(t_pos *pos, int size);
+int		ft_x_right(t_pos *pos, int size);
+int		ft_y_down(t_pos *pos, int size);
+int		ft_y_up(t_pos *pos, int size);
 void	ft_rewrite(t_pos *lst, t_pos *pos);
 int		ft_check_next(t_pos **first);
 int		ft_check_all(t_pos **first);
