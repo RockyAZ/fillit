@@ -85,3 +85,99 @@ int		main(int argc, char **argv)
 	close(fd);
 	return (0);
 }
+
+
+
+
+
+/*
+int		ft_rec_solv(t_pos *beg, t_pos *pos, int size, int to)
+{
+	if (pos == NULL)
+		return (1);
+	while (is_map(pos, size))
+	{
+		if (ft_check_int(beg, to) == 0)
+		{
+			if (ft_rec_solv(beg, pos, size, to) == 0)
+			{
+				ft_x_right(pos);
+				if (is_map(pos, size) == 0)
+				{
+					ft_mover(pos, 0);
+					ft_y_down(pos);
+					if (is_map(pos, size) == 0)
+						ft_mover(pos, 1);
+				}
+			}
+		}
+		else
+			return (1);
+	}
+	return (0);
+}
+*/
+
+
+
+
+
+
+
+
+/*
+int		ft_rec_solv(t_pos *beg, t_pos *pos, int size, int to)
+{
+	if (pos == NULL)
+		return (1);
+	while (is_map(pos, size))
+	{
+		if (ft_check_int(beg, to) == 0 || ft_rec_solv(beg, pos->next, size, to + 1) == 0)
+		{
+			ft_x_right(pos);
+			if (is_map(pos, size) == 0)
+			{
+				ft_mover(pos, 0);
+				ft_y_down(pos);
+			}
+		}
+		else
+			return (1);
+	}
+	return (0);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+int		ft_rec_solv(t_pos *beg, t_pos *pos, int size, int to)
+{
+	if (pos == NULL)
+		return (1);
+printf("IS_MAP-%d\n", is_map(pos, size));
+printf("ft_check_int-%d\n", ft_check_int(beg, to));
+
+		while (is_map(pos, size) == 1 && (ft_check_int(beg, to) == 0 || ft_rec_solv(beg, pos->next, size, to + 1) == 0))
+		{
+			ft_x_right(pos);
+			if (is_map(pos, size) == 0)
+			{
+				ft_mover(pos, 0);
+				ft_y_down(pos);
+			}
+		}
+		if (ft_check_int(beg, to) == 1 && to > 1)
+			return (1);
+	return (0);
+}
+
+*/

@@ -12,19 +12,19 @@
 
 #include "fillit.h"
 
-int	ft_check_next(t_pos **first)
+int	ft_check_next(t_pos *first)
 {
 	int i;
 	int j;
 
-	if ((*first)->next == NULL)
-		return (0);
+	if (first->next == NULL)
+		return (1);
 	i = -1;
 	while (++i < 4)
 	{
 		j = -1;
 		while (++j < 4)
-			if (((*first)->x[i] == (*first)->next->x[j]) && ((*first)->y[i] == (*first)->next->y[j]))
+			if ((first->x[i] == first->next->x[j]) && (first->y[i] == first->next->y[j]))
 				return(0);
 	}
 	return (1);

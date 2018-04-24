@@ -45,11 +45,11 @@ int					ft_check_int(t_pos *beg, int to);
 void	ft_pos_recorder(t_pos *src);
 void	ft_solver(t_pos *src);
 int		ft_x_left(t_pos *pos, int size);
-int		ft_x_right(t_pos *pos, int size);
-int		ft_y_down(t_pos *pos, int size);
+void	ft_x_right(t_pos *pos);
+void	ft_y_down(t_pos *pos);
 int		ft_y_up(t_pos *pos, int size);
 void	ft_rewrite(t_pos *lst, t_pos *pos);
-int		ft_check_next(t_pos **first);
+int		ft_check_next(t_pos *first);
 int		ft_check_all(t_pos **first);
 int     ft_check_current(t_pos **beg, t_pos *cur);
 

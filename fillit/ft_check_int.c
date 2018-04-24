@@ -23,8 +23,8 @@ int ft_check_int(t_pos *beg, int to)
     while (to > 0)
     {
         pos = beg->next;
-        if (pos == NULL)
-            return (0);
+        if (to == 1)
+            return (1);
         while (cp++ < to - 1)
         {
             i = -1;

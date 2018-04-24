@@ -19,7 +19,6 @@ t_res    *ft_create_map(t_res **map, int i, int size)
 	link = NULL;
 	link = (t_res*)malloc(sizeof(t_res));
 	if (map != NULL)
-		/*free()*/
         map = NULL;
         /*realy need (+ 1) here: ???*/
 	link->map = (char*)malloc((sizeof(char) * i) + 1);

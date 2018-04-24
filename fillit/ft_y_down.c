@@ -12,22 +12,14 @@
 
 #include "fillit.h"
 
-int	ft_y_down(t_pos *pos, int size)
+void	ft_y_down(t_pos *pos)
 {
 	int i;
 
 	i = 0;
 	while (i < 4)
 	{
-		if ((pos->y[i] + 1) >= size)
-			return (0);
-		i++;
-	}
-	i = 0;
-	while (i < 4)
-	{
 		pos->y[i] += 1;
 		i++;
 	}
-	return (1);
 }
