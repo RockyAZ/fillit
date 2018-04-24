@@ -12,7 +12,7 @@
 
 #include "fillit.h"
 
-void	ft_printmap(t_res *map, t_pos *pos)
+void	ft_printmap(t_res *map, t_pos *pos, int size)
 {
 	int		i;
 	int		j;
@@ -20,12 +20,13 @@ void	ft_printmap(t_res *map, t_pos *pos)
 
 	i = 0;
 	j = 0;
+	size++;
 	while (pos)
 	{
 		lst_pos = map->map;
 		while (*lst_pos != '\0')
 		{
-			if ((i % 5 == pos->x[j]) && (i / 5 == pos->y[j]))
+			if ((i % size == pos->x[j]) && (i / size == pos->y[j]) && *lst_pos != '\n')
 			{
 				*lst_pos = pos->c;
 				j++;
@@ -76,22 +77,25 @@ int		ft_rec_solv(t_pos *beg, t_pos *pos, int size, int to)
 {
 	if (pos == NULL)
 		return (1);
-	while (is_map(pos, size) == 1 && (ft_check_int(beg, to) == 0 || ft_rec_solv(beg, pos->next, size, to + 1) == 0))
-	{
-		ft_x_right(pos);
-		if (is_map(pos, size) == 0)
+//	printf("IS_MAP-%d\n", is_map(pos, size));
+//	printf("ft_check_int-%d\n", ft_check_int(beg, to));
+
+		while (is_map(pos, size) == 1 && (ft_check_int(beg, to) == 0 || ft_rec_solv(beg, pos->next, size, to + 1) == 0))
 		{
-			ft_mover(pos, 0);
-			ft_y_down(pos);
+			ft_x_right(pos);
 			if (is_map(pos, size) == 0)
 			{
-				ft_mover(pos, 1);
-				return (0);
+				ft_mover(pos, 0);
+				ft_y_down(pos);
+				if (is_map(pos, size) == 0)
+				{
+					ft_mover(pos, 1);
+					return (0);
+				}
 			}
 		}
-	}
-	if (ft_check_all(&beg) == 1)
-		return (1);
+		if (ft_check_all(&beg) == 1)
+			return (1);
 	return (0);
 }
 
@@ -123,14 +127,17 @@ t_pos *cpp = cp;
 		map = ft_create_map(&map, map_c, size);
 		bul = ft_rec_solv(cp, cp, size, 1);
 		printf("BUL-%d\n\n", bul);
-		map_c += ad;
-		ad += 2;
-		size++;
-		if (size > 5)
-			exit(1);
+		if (bul == 0)
+		{
+			map_c += ad;
+			ad += 2;
+			size++;
+		}
+//		if (size > 5)
+//			exit(1);
 	}
 	printf("MAP:\n%s\n", map->map);
-	ft_printmap(map, cp);
+	ft_printmap(map, cp, size);
 
 
 /*----------------------------------------------*/
