@@ -77,7 +77,7 @@ int		ft_rec_solv(t_pos *beg, t_pos *pos, int size, int to)
 {
 	if (pos == NULL)
 		return (1);
-//	printf("IS_MAP-%d\n", is_map(pos, size));
+	printf("IS_MAP-%d\n", is_map(pos, size));
 //	printf("ft_check_int-%d\n", ft_check_int(beg, to));
 
 		while (is_map(pos, size) == 1 && (ft_check_int(beg, to) == 0 || ft_rec_solv(beg, pos->next, size, to + 1) == 0))
@@ -94,7 +94,7 @@ int		ft_rec_solv(t_pos *beg, t_pos *pos, int size, int to)
 				}
 			}
 		}
-		if (ft_check_all(&beg) == 1)
+		if (ft_check_all(&beg) == 1 && is_map(pos, size))
 			return (1);
 	return (0);
 }
