@@ -6,22 +6,41 @@
 #    By: azaporoz <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/11 15:27:53 by azaporoz          #+#    #+#              #
-#    Updated: 2018/04/24 17:02:26 by azaporoz         ###   ########.fr        #
+#    Updated: 2018/04/25 14:18:22 by azaporoz         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
-all:
-	@gcc -Wall -Wextra -Werror -c ft_x_left.c ft_x_right.c ft_y_down.c ft_y_up.c \
-								 ft_pos_recorder.c ft_rewrite.c ft_check_current.c ft_check_all.c ft_list_push_back.c ft_lstnew_pos.c ft_create_map.c ft_map_filler.c ft_check_int.c ft_check_next.c -I fillit.h
-	@ar rc fillit.a *.o
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+SOURCE = ft_x_left.c \
+			ft_x_right.c \
+			ft_y_down.c \
+			ft_y_up.c \
+			ft_pos_recorder.c \
+			ft_check_all.c \
+			ft_list_push_back.c \
+			ft_lstnew_pos.c \
+			ft_create_map.c \
+			ft_map_filler.c \
+			ft_check_int.c \
+			ft_solver.c \
+			ft_mover.c
 
-main:
-	gcc -Wall -Wextra -Werror main.c fillit.a include/libft.a ft_solver.c
+HEADER = fillit.h
+OBJECTS = $(SOURCE:.c=.o)
+NAME = fillit.a
+RM = rm -f
+
+all: $(NAME)
+
+$(NAME):
+	$(CC) $(CFLAGC) -c $(SOURCE) -I $(HEADER)
+	ar rc $(NAME) $(OBJECTS)
 
 clean:
-	@rm -f *.o
+	@$(RM) $(OBJECTS)
 
 fclean: clean
-	@rm -f fillit.a
+	@$(RM) $(NAME)
 
 re: fclean all

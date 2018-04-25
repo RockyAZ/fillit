@@ -16,7 +16,6 @@ t_pos	*ft_lstnew_pos(void const *content, size_t content_size, char c)
 {
 	t_pos *link;
 
-	link = NULL;
 	link = (t_pos*)malloc(sizeof(t_pos));
 	if (link == NULL)
 		return (NULL);

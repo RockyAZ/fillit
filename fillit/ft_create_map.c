@@ -1,4 +1,4 @@
- /* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_create_map.c                                    :+:      :+:    :+:   */
@@ -12,16 +12,15 @@
 
 #include "fillit.h"
 
-t_res    *ft_create_map(t_res **map, int i, int size)
+t_res	*ft_create_map(t_res **map, int i, int size)
 {
 	t_res *link;
 
 	link = NULL;
 	link = (t_res*)malloc(sizeof(t_res));
 	if (map != NULL)
-        map = NULL;
-        /*realy need (+ 1) here: ???*/
+		map = NULL;
 	link->map = (char*)malloc((sizeof(char) * i) + 1);
-    link = ft_map_filler(link, i, size);
-    return (link);
+	link = ft_map_filler(link, i, size);
+	return (link);
 }

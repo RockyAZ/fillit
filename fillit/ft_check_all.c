@@ -14,10 +14,10 @@
 
 int	ft_check_all(t_pos **first)
 {
-	t_pos *cp;
-	t_pos *pos;
-	int i;
-	int j;
+	t_pos	*cp;
+	t_pos	*pos;
+	int		i;
+	int		j;
 
 	pos = *first;
 	while (pos != NULL)
@@ -31,7 +31,7 @@ int	ft_check_all(t_pos **first)
 				j = -1;
 				while (++j < 4)
 					if ((pos->x[i] == cp->x[j]) && (pos->y[i] == cp->y[j]))
-						return(0);
+						return (0);
 			}
 			cp = cp->next;
 		}
